@@ -5,7 +5,6 @@
 #include <time.h>
 #include <string.h>
 #include <unistd.h>
-#include <WinUser.h>
 
 int board[3][3];	        //define o tamanho da matriz do tabuleiro
 int turn;                   //turno atual
@@ -75,7 +74,7 @@ void OnKeyPress(unsigned char key,int x,int y){
             }
             break;
             case 'f':
-                return 0;
+                exit(0);
             break;
         }
     }
@@ -405,7 +404,6 @@ void Reshape(int x, int y){
 }
 //função main
 int main(int argc, char **argv){
-    ShowWindow(GetConsoleWindow(), SW_HIDE);
 	Intialize();
 	glutInit(&argc,argv);
 	glutInitDisplayMode(GLUT_RGB|GLUT_DOUBLE);
