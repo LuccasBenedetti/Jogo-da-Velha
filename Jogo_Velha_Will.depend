@@ -1,0 +1,25 @@
+# depslib dependency file v1.0
+1633288819 source:c:\users\lucca\desktop\trab will\jogo_velha_will\main.cpp
+	<GL/glut.h>
+	<iostream>
+	<math.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	<unistd.h>
+	<WinUser.h>
+
+1631989671 c:\program files\codeblocks\freeglut\include\gl\glut.h
+	"freeglut_std.h"
+
+1631989671 c:\program files\codeblocks\freeglut\include\gl\freeglut_std.h
+	<windows.h>
+	<EGL/egl.h>
+	<GLES/gl.h>
+	<GLES2/gl2.h>
+	<OpenGL/gl.h>
+	<OpenGL/glu.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	<stdlib.h>
+
