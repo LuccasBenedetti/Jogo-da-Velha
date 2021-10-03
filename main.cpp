@@ -9,22 +9,22 @@
 int tabuleiro[3][3];	        //define o tamanho da matriz do tabuleiro
 int turno;                   //turnoo atual
 int resultado;		            //resultadoado do jogo
-bool gameover = false;	        //o jogo já acabou?
-int comp;		            //variável do computador
+bool gameover = false;	        //o jogo ja acabou?
+int comp;		            //variavel do computador
 int mainmenu = 0;		    //menu principal
 char p1[10], p2[10];        //tamanho do nome dos jogadores 1 e 2
-int i = 0, j = 0, k = 0;    //variáveis globais de utilidade
+int i = 0, j = 0, k = 0;    //variaveis globais de utilidade
 
-//inicia e limpa o tabuleiro pro início do jogo
+//inicia e limpa o tabuleiro pro inicio do jogo
 void Intialize(){
 	turno=1;
-	for(int i=0;i<3;i++)//aqui ele tá checando os "slots" em um loop e limpando todos{
+	for(int i=0;i<3;i++)//aqui ele ta checando os "slots" em um loop e limpando todos{
 		for(int j=0;j<3;j++){
 			tabuleiro[i][j]=0;
 	}
-	i=0;j=0;k=0;//volta as posições dos "ponteiros do tabuleiro" pro início
+	i=0;j=0;k=0;//volta as posicoes dos "ponteiros do tabuleiro" pro inï¿½cio
 }
-//função pra desenhar o texto (peguei isso na net)
+//funcao pra desenhar o texto (peguei isso na net)
 void DesenhaTexto(void *font,const char s[],float x,float y){
 	unsigned int i;
 	glRasterPos2f(x,y);
@@ -32,7 +32,7 @@ void DesenhaTexto(void *font,const char s[],float x,float y){
 		glutBitmapCharacter(font,s[i]);
 	}
 }
-//função do teclado (comandos do jogo e digitar nomes)
+//funcao do teclado (comandos do jogo e digitar nomes)
 void TeclaPressionada(unsigned char key,int x,int y){
 	if(mainmenu == 1){
 		if(k == 0 && key != 13) p1[i++] = key;
@@ -68,7 +68,7 @@ void TeclaPressionada(unsigned char key,int x,int y){
                 Intialize();
             }
             break;
-            case 'n': //não para jogar novamente
+            case 'n': //nï¿½o para jogar novamente
             if(gameover==true){
                 exit(0);
             }
@@ -79,7 +79,7 @@ void TeclaPressionada(unsigned char key,int x,int y){
         }
     }
 }
-//função do mouse (vlw Will)
+//funcao do mouse (vlw Will)
 void OnMouseClick(int button, int state, int mousex, int mousey){
 	if(gameover==false && button==GLUT_LEFT_BUTTON && state==GLUT_DOWN){
 		if(turno==1){
@@ -110,10 +110,10 @@ void DrawLines(){
     glVertex2f(50,250);
 	glVertex2f(650,250);
 	glVertex2f(50,450);
-	glVertex2f(650,450);//até aqui tá definindo as posições das linhas
+	glVertex2f(650,450);//ate aqui ta definindo as posicoes das linhas
     glEnd();
 }
-//função pra fazer um circulo (vlw internet)
+//funcao pra fazer um circulo (vlw internet)
 void DrawCircle(float cx, float cy, float r, int num_segments){
     glBegin(GL_LINE_LOOP);
     for (int i = 0; i < num_segments; i++){
@@ -124,7 +124,7 @@ void DrawCircle(float cx, float cy, float r, int num_segments){
     }
     glEnd();
 }
-//função pra desenhar o X e o O
+//funcao pra desenhar o X e o O
 void DrawXO(){
 	for(int i=0;i<3;i++){
 		for(int j=0;j<3;j++){
@@ -142,7 +142,7 @@ void DrawXO(){
 		}
 	}
 }
-int blocking_win(){//função pro computador funcionar
+int blocking_win(){//funcao pro computador funcionar
     int i, t;
     for( i = 0; i < 3; i++){
         t = 0;
@@ -190,7 +190,7 @@ int blocking_win(){//função pro computador funcionar
 
     return(0);
 }
-int check_corner(void){//função pro computador funcionar
+int check_corner(void){//funcao pro computador funcionar
     if (tabuleiro[0][0]==0){
          tabuleiro[0][0]=2;
          return(1);
@@ -209,7 +209,7 @@ int check_corner(void){//função pro computador funcionar
     }
     return(0);
 }
-int check_row(void){//função pro computador funcionar
+int check_row(void){//funcao pro computador funcionar
     if(tabuleiro[0][1] == 0){
          tabuleiro[0][1]=2;
          return(1);
@@ -229,7 +229,7 @@ int check_row(void){//função pro computador funcionar
 
     return(0);
 }
-//função que checa se alguem ganhou
+//funcao que checa se alguem ganhou
 bool ChecaVencedor(){
 	int i, j;
 	//checagem horizontal
@@ -259,7 +259,7 @@ bool ChecaVencedor(){
 		return true;
 	return false;
 }
-//função que checa se rolou empate
+//funcao que checa se rolou empate
 bool ChecaEmpate(){
 	int i, j;
 	bool draw;
@@ -271,8 +271,8 @@ bool ChecaEmpate(){
 	}
 	return true;
 }
-//função super incrivelmente avançada pra máquina jogar contra o usuário
-//ele parece ser inteligente nas jogadas, mas acredite, ele é bem burro
+//funcao super incrivelmente avancada pra maquina jogar contra o usuario
+//ele parece ser inteligente nas jogadas, mas acredite, ele e bem burro
 int computador(){
     if(!ChecaVencedor()){
         if(turno == -1){
@@ -283,24 +283,24 @@ int computador(){
             }
     }
     return 0;
-}//ele basicamente checa os "slots" que não foram marcados e escolhe um
+}//ele basicamente checa os "slots" que nao foram marcados e escolhe um
 void Criador(){
     glColor3f(0,1,1);
     DesenhaTexto(GLUT_BITMAP_HELVETICA_10, "Desenvolvido por: Luccas Silva Benedetti", 0, 650);
 }
-//função pra botar td na tela
+//funcao pra botar td na tela
 void Display(){
 	if(mainmenu == 0){
 		glClear(GL_COLOR_BUFFER_BIT);//limpa a tela
 		glClearColor(0, 0, 0, 0);//define a cor do fundo
 		Criador();
-		glColor3f(1, 1, 0);//define a cor das letras do título
+		glColor3f(1, 1, 0);//define a cor das letras do tï¿½tulo
 		DesenhaTexto(GLUT_BITMAP_HELVETICA_18, "Jogo da Velha", 280, 180);
-		glColor3f(1, 1, 1);//define a cor das letras da opção 1
+		glColor3f(1, 1, 1);//define a cor das letras da opï¿½ï¿½o 1
 		DesenhaTexto(GLUT_BITMAP_HELVETICA_18, "Dois Jogadores - 2", 260, 230);
-		glColor3f(1, 1, 1);//define a cor das letras da opção 2
+		glColor3f(1, 1, 1);//define a cor das letras da opï¿½ï¿½o 2
 		DesenhaTexto(GLUT_BITMAP_HELVETICA_18, "Contra o PC - C", 270, 280);
-		glColor3f(1, 1, 1);//define a cor das letras da opçào 3
+		glColor3f(1, 1, 1);//define a cor das letras da opï¿½ï¿½o 3
 		DesenhaTexto(GLUT_BITMAP_HELVETICA_18, "Encerrar programa - F", 250, 330);
 		glutSwapBuffers();
 		}
@@ -346,7 +346,7 @@ void Display(){
             }
             else if(turno == -1){
                 DesenhaTexto(GLUT_BITMAP_HELVETICA_18, "Vez de: ", 225, 30);
-                DesenhaTexto(GLUT_BITMAP_HELVETICA_18, "Computador", 300, 30);//desenha o nome do computador (pré definido)
+                DesenhaTexto(GLUT_BITMAP_HELVETICA_18, "Computador", 300, 30);//desenha o nome do computador (pre definido)
             }
             DrawLines();
             DrawXO();
@@ -394,7 +394,7 @@ void Display(){
         glutSwapBuffers();
     }
 }
-//função do reshape
+//funcao do reshape
 void Reshape(int x, int y){
 	glViewport(0, 0, x, y);
 	glMatrixMode(GL_PROJECTION);
@@ -402,7 +402,7 @@ void Reshape(int x, int y){
 	glOrtho(0, x, y, 0, 0, 1);
 	glMatrixMode(GL_MODELVIEW);
 }
-//função main
+//funcao main
 int main(int argc, char **argv){
 	Intialize();
 	glutInit(&argc,argv);
