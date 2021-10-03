@@ -23,3 +23,12 @@
 	<GL/glu.h>
 	<stdlib.h>
 
+1633290133 source:c:\users\lucca\documents\github\jogo-da-velha\main.cpp
+	<GL/glut.h>
+	<iostream>
+	<math.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	<unistd.h>
+
