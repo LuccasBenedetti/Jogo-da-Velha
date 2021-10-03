@@ -142,7 +142,7 @@ void DrawXO(){
 		}
 	}
 }
-int blocking_win(){
+int blocking_win(){//função pro computador funcionar
     int i, t;
     for( i = 0; i < 3; i++){
         t = 0;
@@ -190,7 +190,7 @@ int blocking_win(){
 
     return(0);
 }
-int check_corner(void){
+int check_corner(void){//função pro computador funcionar
     if (tabuleiro[0][0]==0){
          tabuleiro[0][0]=2;
          return(1);
@@ -209,7 +209,7 @@ int check_corner(void){
     }
     return(0);
 }
-int check_row(void){
+int check_row(void){//função pro computador funcionar
     if(tabuleiro[0][1] == 0){
          tabuleiro[0][1]=2;
          return(1);
